@@ -4,12 +4,12 @@ import RubiksSolver.move as mv
 #ZBLL search (using only URF)
 scramble="R2 U2 B L2 F R2 U2 R2 D2 F U2 F2 D F' D' B' R' B2 U' R2 B2"
 scramble=sv.solve_F2L(scramble, "z y'", True, True, False, True, 14, False, 1, "xxxcross", mv.move_UDLRFB)
-scramble=sv.solve_LL_substep(scramble, "", False, False, False, True, 14, False, 1, "VHLS", mv.move_URF)
+scramble=sv.solve_LL_substep(scramble, "", False, False, False, True, 14, False, 1, "ZBLS", mv.move_URF)
 scramble=sv.solve_LL(scramble, "", 16, True, 1, "ZBLL", mv.move_URF)
 
 """
 z y' L' R2 F L2 F2 U' L2 R' B2 D R F  // xxxcross No.1
-U R' F' U F U2 F' U' F2 R F'  // VHLS No.1
+U R' F' U F U2 F' U' F2 R F'  // ZBLS No.1
 1: F' U2 F' U R' F' R F U F' U2 F2 R U R'
 2: U R2 U R2 F' R U2 R' U' R U' R' F R2 U' R2
 3: U2 F U R' F' R2 F R2 U' R' U R2 U' F' U R'
