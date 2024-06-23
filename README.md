@@ -1,5 +1,6 @@
 # RubiksSolver
-Rubik's cube cross, xcross, xxcross, xxxcross and xxxxcross solver. <br>
+Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. <br>
+xcorss, xxcross, xxxcross, and xxxxcross solver can be applied to F2L solver.<br>
 Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available.<br>
 For xxxcross, xxxxcross, LL substep, and LL solver, PyPy3 is recommended.<br>
 For the first run, some tables will be created, and need approximately 1.3 GB of disk space.<br>
