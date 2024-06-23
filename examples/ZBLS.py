@@ -1,7 +1,7 @@
 import RubiksSolver.solver as sv
 import RubiksSolver.move as mv
 
-#VHLS(FR) search (using only UDRF)
+#ZBLS(FR) search (using only UDRF)
 scramble="B' R2 D' F' D2 R2 U2 L2 F' R2 U2 B U2 L2 R' U' L F2 R B R'"
 scramble=sv.solve_F2L(scramble, "z2", True, True, False, True, 14, False, 1, "xxxcross", mv.move_UDLRFB)
 scramble=sv.solve_LL_substep(scramble, "", False, False, False, True, 12, True, 1, "VHLS", mv.move_UDRF)
