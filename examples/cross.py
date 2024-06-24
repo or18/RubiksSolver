@@ -19,7 +19,7 @@ d=4, 20.717832%
 d=5, 55.602904%
 d=6, 68.145231%
 d=7, 68.181818%
-created prune table in 0.053587s ans saved to RubiksSolver/table/edge1618_edge2022_prune_table
+created prune table in 0.053587s and saved to RubiksSolver/table/edge1618_edge2022_prune_table
 1: D R' D' L B2
 2: D R' D' B2 L
 3: L D R' D' B2
