@@ -35,11 +35,11 @@ os.environ['PATH']+=':/content/pypy3.10-v7.3.16-linux64/bin/'
 ```sh
 !git clone https://github.com/or18/RubiksSolver.git
 ```
-4. Go to /content/RubiksSolver
+5. Go to /content/RubiksSolver
 ```sh
 cd /content/RubiksSolver
 ```
-5. Start search
+6. Start search
 ```python
 %%script pypy3.10
 import RubiksSolver.solver as sv
