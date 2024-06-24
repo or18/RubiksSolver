@@ -3,7 +3,7 @@ import RubiksSolver.move as mv
 
 #F2L#3, 4(solve BR&FR) search
 scramble="R2 D' L2 U2 F' D2 B2 R2 B D2 L2 F L D' F R B' D' F' D"
-scramble=sv.solve_F2L(scramble, "z2 y'", True, False, False, True, 12, False, 2, "xxcross", mv.move_UDLRFB)
+scramble=sv.solve_F2L(scramble, "z2 y'", True, False, False, True, 12, False, 1, "xxcross", mv.move_UDLRFB)
 scramble=sv.solve_F2L(scramble, "", True, True, True, True, 10, True, 1, "F2L#3, 4", mv.move_UDLRFB)
 
 """
