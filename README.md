@@ -17,7 +17,7 @@ move_restrict=['U', 'U2', "U'", 'L', 'L2', "L'", 'F', 'F2', "F'"]
 Download the zip file and extract it in a directory of your choice. Go to the directory, and create a python file like examples. Then you can immediately search for cross solutions.
 
 # For Google colab users
-You can also start search using PyPy3 in Google Colaboratory. Open a notebook and follow the steps.
+You can also start search using PyPy3 in Google Colaboratory. Open a notebook and follow the steps (just copy & paste, and run).
 1. Download the zip file from https://www.pypy.org/download.html
 ```sh
 !wget https://downloads.python.org/pypy/pypy3.10-v7.3.16-linux64.tar.bz2
