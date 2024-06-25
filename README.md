@@ -39,13 +39,18 @@ os.environ['PATH']+=':/content/pypy3.10-v7.3.16-linux64/bin/'
 ```sh
 cd /content/RubiksSolver
 ```
-6. Start search
+6. Create Python file
 ```python
-%%script pypy3.10
+%%writefile test.py
+
 import RubiksSolver.solver as sv
 import RubiksSolver.move as mv
 
 #from examples/cross.py
 scramble="F2 U L2 F2 D2 U' B2 D2 F2 U' B2 D R F2 D U' B' R' D2 U"
 scramble=sv.solve_F2L(scramble, "", False, False, False, False, 5, True, 1, "cross", mv.move_UDLRFB)
+```
+7. Run
+```sh
+!pypy3.10 test.py
 ```
