@@ -26,7 +26,7 @@ You can also start search using PyPy3 in Google Colaboratory. Open a notebook an
 ```sh
 !tar -xf pypy3.10-v7.3.16-linux64.tar.bz2
 ```
-3. Set path
+3. Add path
 ```python
 import os
 os.environ['PATH']+=':/content/pypy3.10-v7.3.16-linux64/bin/'
