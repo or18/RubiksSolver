@@ -219,6 +219,6 @@ def create_cp_move_table():
         return move_table
     
 def create_ma_table():
-    ret={prev*18+i: (i//3==prev//3 or ((i//3)//2==(prev//3)//2 and (prev//3)%2>(i//3)%2)) if prev<18 else False for prev in range(19) for i in range(18)}
+    ret=[(i//3==prev//3 or ((i//3)//2==(prev//3)//2 and (prev//3)%2>(i//3)%2)) if prev<18 else False for prev in range(19) for i in range(18)]
     return ret
             
