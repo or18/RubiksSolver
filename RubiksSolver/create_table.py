@@ -63,7 +63,6 @@ def create_multi_move_table(n, c, pn, size, table, path):
     if not os.path.exists(path):
         print(f"start creating multi move table")
         tmp_table={i: v for i, v in enumerate(table)}
-        tmp=0
         t=time.time()
         move_table=array.array('i', [-1 for i in range(size*18)])
         for i in range(size):
