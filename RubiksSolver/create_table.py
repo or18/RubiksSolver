@@ -63,12 +63,18 @@ def create_multi_move_table(n, c, pn, size, table, path):
     if not os.path.exists(path):
         print(f"start creating multi move table")
         tmp_table={i: v for i, v in enumerate(table)}
+        tmp=0
         t=time.time()
-        move_table=array.array('i', [0 for i in range(size*18)])
+        move_table=array.array('i', [-1 for i in range(size*18)])
         for i in range(size):
             for j in range(18):
                 a=function.index_to_array(i, n, c, pn)
-                move_table[18*i+j]=function.array_to_index([tmp_table[18*k+j] for k in a], n, c, pn)
+                if move_table[18*i+j]!=-1:
+                    continue
+                a=function.index_to_array(i, n, c, pn)
+                tmp=function.array_to_index([tmp_table[18*k+j] for k in a], n, c, pn)
+                move_table[18*i+j]=tmp
+                move_table[18*tmp+3*(j//3)+2-j%3]=i
         with open(path, "wb") as f:
             move_table.tofile(f)
         print(f"created multi move table in {time.time()-t:.6f}s and save to {path}")
