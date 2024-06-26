@@ -68,7 +68,6 @@ def create_multi_move_table(n, c, pn, size, table, path):
         move_table=array.array('i', [-1 for i in range(size*18)])
         for i in range(size):
             for j in range(18):
-                a=function.index_to_array(i, n, c, pn)
                 if move_table[18*i+j]!=-1:
                     continue
                 a=function.index_to_array(i, n, c, pn)
