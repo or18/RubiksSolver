@@ -183,6 +183,6 @@ scramble=sv.solve_F2L(scramble, "", True, False, False, True, 11, False, 1, "F2L
 scramble=sv.solve_F2L(scramble, "", True, True, False, True, 13, False, 1, "F2L#3 (BR)", mv.move_UDLRFB)
 scramble=sv.solve_F2L(scramble, "", True, True, True, True, 15, False, 1, "F2L#4 (FR)", mv.move_UDLRFB)
 scramble=sv.solve_LL_substep(scramble, "", False, True, False, True, 12, False, 1, "OLL", mv.move_UDLRFB)
-scramble=sv.solve_LL(scramble, "", 14, True, 1, "PLL", mv.move_UDLRFB)
+scramble=sv.solve_LL(scramble, "", 14, False, 1, "PLL", mv.move_UDLRFB)
 scramble=sv.solve_LL_AUF(scramble, "", 1, False, 1, "AUF", mv.move_UDLRFB)
 ```
