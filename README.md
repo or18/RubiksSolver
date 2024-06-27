@@ -67,6 +67,6 @@ solve_LL(scramble, rotation, max_length, full_search, sol_index, name, move_rest
 solve_LL_AUF(scramble, rotation, max_length, full_search, sol_index, name, move_restrict)
 ```
 ## solve_F2L
-##solve_LL_substep
-##solve_LL
-##solve_LL_AUF
+## solve_LL_substep
+## solve_LL
+## solve_LL_AUF
