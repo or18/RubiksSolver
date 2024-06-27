@@ -130,21 +130,21 @@ import RubiksSolver.move as mv
 
 #If you want to search solutions for OLL, set solve_co and solve_eo options True
 scramble="U' F R' F U2 B2 R' B2 R B2 L' B2 L U2 F2"
-scramble=solve_LL_substep(scramble, "", False, True, False, True, 12, True, 1, "OLL", mv.move_UDLRFB)
+scramble=sv.solve_LL_substep(scramble, "", False, True, False, True, 12, True, 1, "OLL", mv.move_UDLRFB)
 
 #If you want to search solutions for OLL using only U, R, F faces, set move_restrict mv.move_URF
 scramble="U' F R' F U2 B2 R' B2 R B2 L' B2 L U2 F2"
-scramble=solve_LL_substep(scramble, "", False, True, False, True, 12, True, 1, "OLL", mv.move_URF)
+scramble=sv.solve_LL_substep(scramble, "", False, True, False, True, 12, True, 1, "OLL", mv.move_URF)
 
 #If you want to search solutions for OLL using only U, L, F faces, please make array for move_restrict
 scramble="U' F R' F U2 B2 R' B2 R B2 L' B2 L U2 F2"
 move_ULF=['U', 'U2', "U'", 'L', 'L2', "L'", 'F', 'F2', "F'"]
-scramble=solve_LL_substep(scramble, "", False, True, False, True, 12, True, 1, "OLL", move_ULF)
+scramble=sv.solve_LL_substep(scramble, "", False, True, False, True, 12, True, 1, "OLL", move_ULF)
 
 #If you want to search solutions for ZBLS or VHLS after solve xxxcross using solve_F2L, set solve_EO option True
 scramble="F2 U L2 F2 D2 U' B2 D2 F2 U' B2 D R F2 D U' B' R' D2 U"
 scramble=sv.solve_F2L(scramble, "", True, True, False, True, 13, False, 1, "xxxcross", mv.move_UDLRFB)
-scramble=solve_LL_substep(scramble, "", False, False, False, True, 12, True, 1, "ZBLS", mv.move_UDLRFB)
+scramble=sv.solve_LL_substep(scramble, "", False, False, False, True, 12, True, 1, "ZBLS", mv.move_UDLRFB)
 ```
 ## solve_LL(scramble, rotation, max_length, full_search, sol_index, name, move_restrict)
 ### Applications
@@ -158,11 +158,11 @@ import RubiksSolver.move as mv
 
 #If you want to search solutions for PLL
 scramble"R2 U F2 L2 B2 D' B2 L2 F2 U2 R2 U"
-scramble=solve_LL(scramble, "", 14, True, 1, "PLL", mv.move_UDLRFB)
+scramble=sv.solve_LL(scramble, "", 14, True, 1, "PLL", mv.move_UDLRFB)
 
 #If you want to search solutions for ZBLL using only U, D, R, F faces
 scramble="U F' B U' F U F2 D2 B D2 B' L2 B' L2 F2"
-scramble=solve_LL(scramble, "", 14, True, 1, "ZBLL", mv.move_UDRF)
+scramble=sv.solve_LL(scramble, "", 14, True, 1, "ZBLL", mv.move_UDRF)
 ```
 ## solve_LL_AUF(scramble, rotation, max_length, full_search, sol_index, name, move_restrict)
 ### Applications
@@ -181,7 +181,7 @@ scramble=sv.solve_F2L(scramble, "", True, False, False, False, 9, False, 1, "F2L
 scramble=sv.solve_F2L(scramble, "", True, False, False, True, 11, False, 1, "F2L#2 (FL)", mv.move_UDLRFB)
 scramble=sv.solve_F2L(scramble, "", True, True, False, True, 13, False, 1, "F2L#3 (BR)", mv.move_UDLRFB)
 scramble=sv.solve_F2L(scramble, "", True, True, True, True, 15, False, 1, "F2L#4 (FR)", mv.move_UDLRFB)
-scramble=solve_LL_substep(scramble, "", False, True, False, True, 12, False, 1, "OLL", mv.move_UDLRFB)
-scramble=solve_LL(scramble, "", 14, True, 1, "PLL", mv.move_UDLRFB)
-scramble=solve_LL_AUF(scramble, "", 1, False, 1, "AUF", mv.move_UDLRFB)
+scramble=sv.solve_LL_substep(scramble, "", False, True, False, True, 12, False, 1, "OLL", mv.move_UDLRFB)
+scramble=sv.solve_LL(scramble, "", 14, True, 1, "PLL", mv.move_UDLRFB)
+scramble=sv.solve_LL_AUF(scramble, "", 1, False, 1, "AUF", mv.move_UDLRFB)
 ```
