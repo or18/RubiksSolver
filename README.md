@@ -157,7 +157,7 @@ import RubiksSolver.solver as sv
 import RubiksSolver.move as mv
 
 #If you want to search solutions for PLL
-scramble"R2 U F2 L2 B2 D' B2 L2 F2 U2 R2 U"
+scramble="R2 U F2 L2 B2 D' B2 L2 F2 U2 R2 U"
 scramble=sv.solve_LL(scramble, "", 14, True, 1, "PLL", mv.move_UDLRFB)
 
 #If you want to search solutions for ZBLL using only U, D, R, F faces
