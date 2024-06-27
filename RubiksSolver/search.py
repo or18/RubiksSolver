@@ -47,7 +47,7 @@ class cross_search:
                 print("already solved")
                 return 0
             else:
-                return ""
+                return " "
         index1*=18
         index2*=18
         for depth in range(1, max_length+1):
