@@ -60,12 +60,6 @@ scramble=sv.solve_F2L(scramble, "", False, False, False, False, 5, True, 1, "cro
 ```
 # Usage
 In this program, there are 4 main solvers.
-```python
-solve_F2L(scramble, rotation, solve_BL, solve_BR, solve_FR, solve_FL, max_length, full_search, sol_index, name, move_restrict)
-solve_LL_substep(scramble, rotation, solve_cp, solve_co, solve_ep, solve_eo, max_length, full_search, sol_index, name, move_restrict)
-solve_LL(scramble, rotation, max_length, full_search, sol_index, name, move_restrict)
-solve_LL_AUF(scramble, rotation, max_length, full_search, sol_index, name, move_restrict)
-```
 ## solve_F2L
 ## solve_LL_substep
 ## solve_LL
