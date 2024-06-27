@@ -97,11 +97,11 @@ scramble=sv.solve_F2L(scramble, "", True, False, False, False, 9, True, 1, "xcro
 scramble="U2 L' B2 L D2 R' B2 L U2 R' F2 R2 U B U L B R2 B2 R'" #cross solved scramble
 scramble=sv.solve_F2L(scramble, "", True, False, False, False, 9, True, 1, "F2L#1(BL)", mv.move_UDLRFB)
 
-#If you want to search solutions for BL&FL-xxcross, set solve_BL and solve_FL option True.
+#If you want to search solutions for BL&FL-xxcross, set solve_BL and solve_FL options True.
 scramble="F2 U L2 F2 D2 U' B2 D2 F2 U' B2 D R F2 D U' B' R' D2 U"
 scramble=sv.solve_F2L(scramble, "", True, False, False, True, 11, True, 1, "xxcross", mv.move_UDLRFB)
 
-#If you want to search solutions for F2L (BL&FL) multi slotting, set solve_BL and solve_FL option True.
+#If you want to search solutions for F2L (BL&FL) multi slotting, set solve_BL and solve_FL options True.
 scramble="U2 L' B2 L D2 R' B2 L U2 R' F2 R2 U B U L B R2 B2 R'" #cross solved scramble
 scramble=sv.solve_F2L(scramble, "", True, False, False, True, 11, True, 1, "F2L#1, 2(BL&FL)", mv.move_UDLRFB)
 
