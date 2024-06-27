@@ -4,10 +4,9 @@ Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Xcorss, xxc
 
 # Notes
 - For xxxcross, xxxxcross, LL substep, and LL solver, PyPy3 is recommended.
-- For Google colab users, prease check [For Google colab users](https://github.com/or18/RubiksSolver/blob/main/README.md#for-google-colab-users)
-- For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. <br>
-- Memory required <= 1.64 GB <br>
-- For the usage, please check the examples or [Usage](https://github.com/or18/RubiksSolver#Usage)
+- For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. 
+- Memory required <= 1.64 GB 
+- For the usage, please check the examples or Usage
 - If you want to make your own move restrict, you can make like code bellow.
 ```python
 #If you want to search solutions using only U, L, F faces
