@@ -7,7 +7,7 @@ Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Last layer(
 - Recommended to run on Google Colaboratory.
 - For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. 
 - Memory required <= 1.64 GB 
-- For the usage, please check the examples or Usage
+- For the usage, please check the examples or Detail
 # How to use
 1. Clone this repository and go to the directory
 ```sh
@@ -54,7 +54,7 @@ scramble=sv.solve_F2L(scramble, "", False, False, False, False, 5, True, 1, "cro
 ```sh
 !pypy3.10 test.py
 ```
-# Usage
+# Detail
 ## solve_F2L(scramble, rotation, solve_BL, solve_BR, solve_FR, solve_FL, max_length, full_search, sol_index, name, move_restrict)
 ### Applications
 Cross, xcross, xxcross, xxxcross, xxxxcross, F2L, multi slotting
