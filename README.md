@@ -1,21 +1,25 @@
 # RubiksSolver
 # Overview
-Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. xcorss, xxcross, xxxcross, and xxxxcross solver can be applied to F2L solver. Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available. LL substep solver can be applied to OLL, VHLS, or COLL solver. 
+Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Xcorss, xxcross, xxxcross, and xxxxcross solver can be applied to F2L solver. Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available. LL substep solver can be applied to OLL, VHLS, or COLL solver. 
 
 # Notes
 - For xxxcross, xxxxcross, LL substep, and LL solver, PyPy3 is recommended. 
 - For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. <br>
 - Memory required <= 1.64 GB <br>
-- For the usage, please check the examples.
+- For the usage, please check the examples or [here](https://github.com/or18/RubiksSolver#Usage)
 - If you want to make your own move restrict, you can make like code bellow.
 ```python
 #If you want to search solutions using only U, L, F faces
 move_restrict=['U', 'U2', "U'", 'L', 'L2', "L'", 'F', 'F2', "F'"]
 ```
-
 # How to use
-Download the zip file and extract it in a directory of your choice. Go to the directory, and create a python file like examples. Then you can immediately search for cross solutions.
-
+1. Clone this repository
+```sh
+git clone https://github.com/or18/RubiksSolver.git
+cd RubiksSolver
+```
+2. Create a Python program as shown in the examples, and run
+   
 # For Google colab users
 You can also start search using PyPy3 in Google Colaboratory. Open a notebook and follow the steps (just copy & paste, and run).
 1. Download the zip file from https://www.pypy.org/download.html
@@ -54,3 +58,15 @@ scramble=sv.solve_F2L(scramble, "", False, False, False, False, 5, True, 1, "cro
 ```sh
 !pypy3.10 test.py
 ```
+# Usage
+In this program, there are 4 main solvers.
+```python
+solve_F2L(scramble, rotation, solve_BL, solve_BR, solve_FR, solve_FL, max_length, full_search, sol_index, name, move_restrict)
+solve_LL_substep(scramble, rotation, solve_cp, solve_co, solve_ep, solve_eo, max_length, full_search, sol_index, name, move_restrict)
+solve_LL(scramble, rotation, max_length, full_search, sol_index, name, move_restrict)
+solve_LL_AUF(scramble, rotation, max_length, full_search, sol_index, name, move_restrict)
+```
+## solve_F2L
+##solve_LL_substep
+##solve_LL
+##solve_LL_AUF
