@@ -135,7 +135,7 @@ def create_prune_table(index1, index2, size1, size2, depth, table1, table2, path
             prune_table.fromfile(f, size1*size2)
         return prune_table
         
-def create_prune_table(index1, index2, size1, size2, depth, table1, table2, path):
+def create_prune_table2(index1, index2, size1, size2, depth, table1, table2, path):
     if not os.path.exists(path):
         print(f"start creating prune table")
         t=time.time()
