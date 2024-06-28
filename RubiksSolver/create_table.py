@@ -81,7 +81,30 @@ def create_multi_move_table(n, c, pn, size, table, path):
         with open(path, 'rb') as f:
             move_table.fromfile(f, size*18)
         return move_table
-
+        
+def create_multi_move_table2(n, c, pn, size, table, path):
+    if not os.path.exists(path):
+        print(f"start creating multi move table")
+        t=time.time()
+        move_table=array.array('i', [-1 if i%24<18 else 0 for i in range(size*24)])
+        for i in range(size):
+            for j in range(18):
+                if move_table[24*i+j]!=-1:
+                    continue
+                a=function.index_to_array(i, n, c, pn)
+                tmp=function.array_to_index([table[18*k+j] for k in a], n, c, pn)
+                move_table[24*i+j]=tmp
+                move_table[24*tmp+3*(j//3)+2-j%3]=i
+        with open(path, "wb") as f:
+            move_table.tofile(f)
+        print(f"created multi move table in {time.time()-t:.6f}s and saved to {path}")
+        return move_table
+    else:
+        move_table = array.array('i')
+        with open(path, 'rb') as f:
+            move_table.fromfile(f, size*24)
+        return move_table
+        
 def create_prune_table(index1, index2, size1, size2, depth, table1, table2, path):
     if not os.path.exists(path):
         print(f"start creating prune table")
@@ -111,7 +134,37 @@ def create_prune_table(index1, index2, size1, size2, depth, table1, table2, path
         with open(path, 'rb') as f:
             prune_table.fromfile(f, size1*size2)
         return prune_table
-    
+        
+def create_prune_table(index1, index2, size1, size2, depth, table1, table2, path):
+    if not os.path.exists(path):
+        print(f"start creating prune table")
+        t=time.time()
+        size=size1*size2
+        prune_table=array.array('i',[-1 for i in range(size)])
+        start=index1*size2+index2
+        loop_index=[i for i in range(start, size)]
+        loop_index.extend(range(0, start))
+        prune_table[start]=0
+        # num_filled=1
+        for d in range(0, depth):
+            for i in loop_index:
+                if prune_table[i]==d:
+                    for j in range(18):
+                        next_i=table1[(i//size2)*24+j]*size2+table2[(i%size2)*18+j]
+                        if prune_table[next_i]==-1:
+                            prune_table[next_i]=d+1
+            #                 num_filled+=1
+            # print(f"d={d}, {100*num_filled/size:.6f}%")
+        with open(path, "wb") as f:
+            prune_table.tofile(f)
+        print(f"created prune table in {time.time()-t:.6f}s and saved to {path}")
+        return prune_table
+    else:
+        prune_table = array.array('i')
+        with open(path, 'rb') as f:
+            prune_table.fromfile(f, size1*size2)
+        return prune_table
+        
 def create_eo_move_table():
     path="RubiksSolver/table/eo_move_table"
     if not os.path.exists(path):
@@ -126,7 +179,7 @@ def create_eo_move_table():
             state=move.State(cp, co, ep, eo)
             for j in range(18):
                 new_state=state.apply_move(move.moves[move.move_names[j]])
-                move_table[18*i+j]=function.o_to_index(new_state.eo, 2, 12)
+                move_table[18*i+j]=18*function.o_to_index(new_state.eo, 2, 12)
         with open(path, 'wb') as f:
             move_table.tofile(f)
         print(f"created eo move table in {time.time()-t:.6f}s and saved to {path}")
@@ -151,7 +204,7 @@ def create_co_move_table():
             state=move.State(cp, co, ep, eo)
             for j in range(18):
                 new_state=state.apply_move(move.moves[move.move_names[j]])
-                move_table[18*i+j]=function.o_to_index(new_state.co, 3, 8)
+                move_table[18*i+j]=18*function.o_to_index(new_state.co, 3, 8)
         with open(path, 'wb') as f:
             move_table.tofile(f)
         print(f"created co move table in {time.time()-t:.6f}s and saved to {path}")
