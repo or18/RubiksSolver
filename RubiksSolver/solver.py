@@ -66,7 +66,7 @@ def solve_xcross(scramble, rotation, slot1, max_length, full_search, sol_index, 
         edge_move_table=create_table.create_edge_move_table()
         corner_move_table=create_table.create_corner_move_table()
         table1_path='RubiksSolver/table/5edges_move_table'
-        table1=create_table.create_multi_move_table(5, 2, 12, 24*22*20*18*16, edge_move_table, table1_path)
+        table1=create_table.create_multi_move_table2(5, 2, 12, 24*22*20*18*16, edge_move_table, table1_path)
     
         prune_path_set=['RubiksSolver/table/edge016182022_corner12_prune_table', 'RubiksSolver/table/edge216182022_corner15_prune_table', 'RubiksSolver/table/edge416182022_corner18_prune_table', 'RubiksSolver/table/edge616182022_corner21_prune_table']
         edge_solved_set=[2989056, 2989088, 2989120, 2989152]
@@ -74,9 +74,11 @@ def solve_xcross(scramble, rotation, slot1, max_length, full_search, sol_index, 
         
         index1=edge_solved_set[slot_set.index(slot1)]
         index2=corner_solved_set[slot_set.index(slot1)]
-        prune_table1=create_table.create_prune_table(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot1)])
+        prune_table1=create_table.create_prune_table2(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot1)])
+        table1=array.array('i', [24*i for i in table1])
+        index1*=24
         for move in alg:
-            index1=table1[index1*18+move]
+            index1=table1[index1+move]
             index2=corner_move_table[index2*18+move]
             
         move_restrict=array.array('i',[mv.move_names.index(i) for i in move_restrict])
@@ -121,23 +123,26 @@ def solve_xxcross(scramble, rotation, slot1, slot2, max_length, full_search, sol
         edge_move_table=create_table.create_edge_move_table()
         corner_move_table=create_table.create_corner_move_table()
         table1_path='RubiksSolver/table/5edges_move_table'
-        table1=create_table.create_multi_move_table(5, 2, 12, 24*22*20*18*16, edge_move_table, table1_path)
+        table1=create_table.create_multi_move_table2(5, 2, 12, 24*22*20*18*16, edge_move_table, table1_path)
         prune_path_set=['RubiksSolver/table/edge016182022_corner12_prune_table', 'RubiksSolver/table/edge216182022_corner15_prune_table', 'RubiksSolver/table/edge416182022_corner18_prune_table', 'RubiksSolver/table/edge616182022_corner21_prune_table']
         edge_solved_set=[2989056, 2989088, 2989120, 2989152]
         corner_solved_set=[12, 15, 18, 21]
         
         index1=edge_solved_set[slot_set.index(slot1)]
         index2=corner_solved_set[slot_set.index(slot1)]
-        prune_table1=create_table.create_prune_table(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot1)])
+        prune_table1=create_table.create_prune_table2(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot1)])
         
         index3=edge_solved_set[slot_set.index(slot2)]
         index4=corner_solved_set[slot_set.index(slot2)]
-        prune_table2=create_table.create_prune_table(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot2)])
+        prune_table2=create_table.create_prune_table2(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot2)])
+        table1=array.array('i', [24*i for i in table1])
         
+        index1*=24
+        index3*=24
         for move in alg:
-            index1=table1[index1*18+move]
+            index1=table1[index1+move]
             index2=corner_move_table[index2*18+move]
-            index3=table1[index3*18+move]
+            index3=table1[index3+move]
             index4=corner_move_table[index4*18+move]
             
         move_restrict=array.array('i',[mv.move_names.index(i) for i in move_restrict])
@@ -182,29 +187,33 @@ def solve_xxxcross(scramble, rotation, slot1, slot2, slot3, max_length, full_sea
         edge_move_table=create_table.create_edge_move_table()
         corner_move_table=create_table.create_corner_move_table()
         table1_path='RubiksSolver/table/5edges_move_table'
-        table1=create_table.create_multi_move_table(5, 2, 12, 24*22*20*18*16, edge_move_table, table1_path)
+        table1=create_table.create_multi_move_table2(5, 2, 12, 24*22*20*18*16, edge_move_table, table1_path)
         prune_path_set=['RubiksSolver/table/edge016182022_corner12_prune_table', 'RubiksSolver/table/edge216182022_corner15_prune_table', 'RubiksSolver/table/edge416182022_corner18_prune_table', 'RubiksSolver/table/edge616182022_corner21_prune_table']
         edge_solved_set=[2989056, 2989088, 2989120, 2989152]
         corner_solved_set=[12, 15, 18, 21]
         
         index1=edge_solved_set[slot_set.index(slot1)]
         index2=corner_solved_set[slot_set.index(slot1)]
-        prune_table1=create_table.create_prune_table(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot1)])
+        prune_table1=create_table.create_prune_table2(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot1)])
         
         index3=edge_solved_set[slot_set.index(slot2)]
         index4=corner_solved_set[slot_set.index(slot2)]
-        prune_table2=create_table.create_prune_table(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot2)])
+        prune_table2=create_table.create_prune_table2(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot2)])
         
         index5=edge_solved_set[slot_set.index(slot3)]
         index6=corner_solved_set[slot_set.index(slot3)]
-        prune_table3=create_table.create_prune_table(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot3)])
+        prune_table3=create_table.create_prune_table2(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[slot_set.index(slot3)])
+        table1=array.array('i', [24*i for i in table1])
         
+        index1*=24
+        index3*=24
+        index5*=24
         for move in alg:
-            index1=table1[index1*18+move]
+            index1=table1[index1+move]
             index2=corner_move_table[index2*18+move]
-            index3=table1[index3*18+move]
+            index3=table1[index3+move]
             index4=corner_move_table[index4*18+move]
-            index5=table1[index5*18+move]
+            index5=table1[index5+move]
             index6=corner_move_table[index6*18+move]
         
         move_restrict=array.array('i',[mv.move_names.index(i) for i in move_restrict])
@@ -244,35 +253,39 @@ def solve_xxxxcross(scramble, rotation, max_length, full_search, sol_index, name
     alg=function.AlgRotation(function.StringToAlg(scramble), rotation)
     edge_move_table=create_table.create_edge_move_table()
     corner_move_table=create_table.create_corner_move_table()
-    table1=create_table.create_multi_move_table(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
+    table1=create_table.create_multi_move_table2(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
     prune_path_set=['RubiksSolver/table/edge016182022_corner12_prune_table', 'RubiksSolver/table/edge216182022_corner15_prune_table', 'RubiksSolver/table/edge416182022_corner18_prune_table', 'RubiksSolver/table/edge616182022_corner21_prune_table']
     edge_solved_set=[2989056, 2989088, 2989120, 2989152]
     corner_solved_set=[12, 15, 18, 21]
         
     index1=edge_solved_set[0]
     index2=corner_solved_set[0]
-    prune_table1=create_table.create_prune_table(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
+    prune_table1=create_table.create_prune_table2(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
         
     index3=edge_solved_set[1]
     index4=corner_solved_set[1]
-    prune_table2=create_table.create_prune_table(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
+    prune_table2=create_table.create_prune_table2(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
         
     index5=edge_solved_set[2]
     index6=corner_solved_set[2]
-    prune_table3=create_table.create_prune_table(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
+    prune_table3=create_table.create_prune_table2(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
         
     index7=edge_solved_set[3]
     index8=corner_solved_set[3]
-    prune_table4=create_table.create_prune_table(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
-        
+    prune_table4=create_table.create_prune_table2(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
+    table1=array.array('i', [24*i for i in table1])
+    index1*=24
+    index3*=24
+    index5*=24
+    index7*=24
     for move in alg:
-        index1=table1[index1*18+move]
+        index1=table1[index1+move]
         index2=corner_move_table[index2*18+move]
-        index3=table1[index3*18+move]
+        index3=table1[index3+move]
         index4=corner_move_table[index4*18+move]
-        index5=table1[index5*18+move]
+        index5=table1[index5+move]
         index6=corner_move_table[index6*18+move]
-        index7=table1[index7*18+move]
+        index7=table1[index7+move]
         index8=corner_move_table[index8*18+move]
     
     move_restrict=array.array('i',[mv.move_names.index(i) for i in move_restrict])
@@ -335,7 +348,7 @@ def solve_LL_substep(scramble, rotation, solve_cp, solve_co, solve_ep, solve_eo,
     alg=function.AlgRotation(function.StringToAlg(scramble), rotation)
     edge_move_table=create_table.create_edge_move_table()
     corner_move_table=create_table.create_corner_move_table()
-    table1=create_table.create_multi_move_table(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
+    table1=create_table.create_multi_move_table2(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
     prune_path_set=['RubiksSolver/table/edge016182022_corner12_prune_table', 'RubiksSolver/table/edge216182022_corner15_prune_table', 'RubiksSolver/table/edge416182022_corner18_prune_table', 'RubiksSolver/table/edge616182022_corner21_prune_table']
     edge_solved_set=[2989056, 2989088, 2989120, 2989152]
     corner_solved_set=[12, 15, 18, 21]
@@ -345,40 +358,46 @@ def solve_LL_substep(scramble, rotation, solve_cp, solve_co, solve_ep, solve_eo,
     eo_table=create_table.create_eo_move_table()
     cp_table=create_table.create_multi_move_table(4, 1, 8, 8*7*6*5, single_cp_move_table, 'RubiksSolver/table/cp_move_table')
     ep_table=create_table.create_multi_move_table(4, 1, 12, 12*11*10*9, single_ep_move_table, 'RubiksSolver/table/ep_move_table')
+    cp_table=array.array('i', [18*i for i in cp_table])
+    ep_table=array.array('i', [18*i for i in ep_table])
         
     index1=edge_solved_set[2]
     index2=corner_solved_set[2]
-    prune_table1=create_table.create_prune_table(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
+    prune_table1=create_table.create_prune_table2(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
         
     index3=edge_solved_set[1]
     index4=corner_solved_set[1]
-    prune_table2=create_table.create_prune_table(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
+    prune_table2=create_table.create_prune_table2(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
         
     index5=edge_solved_set[3]
     index6=corner_solved_set[3]
-    prune_table3=create_table.create_prune_table(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
+    prune_table3=create_table.create_prune_table2(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
         
     index7=edge_solved_set[0]
     index8=corner_solved_set[0]
-    prune_table4=create_table.create_prune_table(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
-    
+    prune_table4=create_table.create_prune_table2(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
+    table1=array.array('i', [24*i for i in table1])
+    index1*=24
+    index3*=24
+    index5*=24
+    index7*=24
     index_cp=0
     index_co=0
-    index_ep=5860
+    index_ep=5860*18
     index_eo=0
     for move in alg:
-        index1=table1[index1*18+move]
+        index1=table1[index1+move]
         index2=corner_move_table[index2*18+move]
-        index3=table1[index3*18+move]
+        index3=table1[index3+move]
         index4=corner_move_table[index4*18+move]
-        index5=table1[index5*18+move]
+        index5=table1[index5+move]
         index6=corner_move_table[index6*18+move]
-        index7=table1[index7*18+move]
+        index7=table1[index7+move]
         index8=corner_move_table[index8*18+move]
-        index_cp=cp_table[index_cp*18+move]
-        index_co=co_table[index_co*18+move]
-        index_ep=ep_table[index_ep*18+move]
-        index_eo=eo_table[index_eo*18+move]
+        index_cp=cp_table[index_cp+move]
+        index_co=co_table[index_co+move]
+        index_ep=ep_table[index_ep+move]
+        index_eo=eo_table[index_eo+move]
         
     move_restrict=array.array('i',[mv.move_names.index(i) for i in move_restrict])
     ma=create_table.create_ma_table()
@@ -417,7 +436,7 @@ def solve_LL(scramble, rotation, max_length, full_search, sol_index, name, move_
     alg=function.AlgRotation(function.StringToAlg(scramble), rotation)
     edge_move_table=create_table.create_edge_move_table()
     corner_move_table=create_table.create_corner_move_table()
-    table1=create_table.create_multi_move_table(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
+    table1=create_table.create_multi_move_table2(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
     prune_path_set=['RubiksSolver/table/edge016182022_corner12_prune_table', 'RubiksSolver/table/edge216182022_corner15_prune_table', 'RubiksSolver/table/edge416182022_corner18_prune_table', 'RubiksSolver/table/edge616182022_corner21_prune_table']
     edge_solved_set=[2989056, 2989088, 2989120, 2989152]
     corner_solved_set=[12, 15, 18, 21]
@@ -427,40 +446,47 @@ def solve_LL(scramble, rotation, max_length, full_search, sol_index, name, move_
     eo_table=create_table.create_eo_move_table()
     cp_table=create_table.create_multi_move_table(4, 1, 8, 8*7*6*5, single_cp_move_table, 'RubiksSolver/table/cp_move_table')
     ep_table=create_table.create_multi_move_table(4, 1, 12, 12*11*10*9, single_ep_move_table, 'RubiksSolver/table/ep_move_table')
-        
+    cp_table=array.array('i', [18*i for i in cp_table])
+    ep_table=array.array('i', [18*i for i in ep_table])
+    
     index1=edge_solved_set[2]
     index2=corner_solved_set[2]
-    prune_table1=create_table.create_prune_table(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
+    prune_table1=create_table.create_prune_table2(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
         
     index3=edge_solved_set[1]
     index4=corner_solved_set[1]
-    prune_table2=create_table.create_prune_table(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
+    prune_table2=create_table.create_prune_table2(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
         
     index5=edge_solved_set[3]
     index6=corner_solved_set[3]
-    prune_table3=create_table.create_prune_table(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
+    prune_table3=create_table.create_prune_table2(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
         
     index7=edge_solved_set[0]
     index8=corner_solved_set[0]
-    prune_table4=create_table.create_prune_table(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
+    prune_table4=create_table.create_prune_table2(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
+    table1=array.array('i', [24*i for i in table1])
     
+    index1*=24
+    index3*=24
+    index5*=24
+    index7*=24
     index_cp=0
     index_co=0
-    index_ep=5860
+    index_ep=5860*18
     index_eo=0
     for move in alg:
-        index1=table1[index1*18+move]
+        index1=table1[index1+move]
         index2=corner_move_table[index2*18+move]
-        index3=table1[index3*18+move]
+        index3=table1[index3+move]
         index4=corner_move_table[index4*18+move]
-        index5=table1[index5*18+move]
+        index5=table1[index5+move]
         index6=corner_move_table[index6*18+move]
-        index7=table1[index7*18+move]
+        index7=table1[index7+move]
         index8=corner_move_table[index8*18+move]
-        index_cp=cp_table[index_cp*18+move]
-        index_co=co_table[index_co*18+move]
-        index_ep=ep_table[index_ep*18+move]
-        index_eo=eo_table[index_eo*18+move]
+        index_cp=cp_table[index_cp+move]
+        index_co=co_table[index_co+move]
+        index_ep=ep_table[index_ep+move]
+        index_eo=eo_table[index_eo+move]
         
     move_restrict=array.array('i',[mv.move_names.index(i) for i in move_restrict])
     ma=create_table.create_ma_table()
@@ -499,7 +525,7 @@ def solve_LL_AUF(scramble, rotation, max_length, full_search, sol_index, name, m
     alg=function.AlgRotation(function.StringToAlg(scramble), rotation)
     edge_move_table=create_table.create_edge_move_table()
     corner_move_table=create_table.create_corner_move_table()
-    table1=create_table.create_multi_move_table(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
+    table1=create_table.create_multi_move_table2(5, 2, 12, 24*22*20*18*16, edge_move_table, 'RubiksSolver/table/5edges_move_table')
     prune_path_set=['RubiksSolver/table/edge016182022_corner12_prune_table', 'RubiksSolver/table/edge216182022_corner15_prune_table', 'RubiksSolver/table/edge416182022_corner18_prune_table', 'RubiksSolver/table/edge616182022_corner21_prune_table']
     edge_solved_set=[2989056, 2989088, 2989120, 2989152]
     corner_solved_set=[12, 15, 18, 21]
@@ -509,40 +535,46 @@ def solve_LL_AUF(scramble, rotation, max_length, full_search, sol_index, name, m
     eo_table=create_table.create_eo_move_table()
     cp_table=create_table.create_multi_move_table(4, 1, 8, 8*7*6*5, single_cp_move_table, 'RubiksSolver/table/cp_move_table')
     ep_table=create_table.create_multi_move_table(4, 1, 12, 12*11*10*9, single_ep_move_table, 'RubiksSolver/table/ep_move_table')
-        
+    cp_table=array.array('i', [18*i for i in cp_table])
+    ep_table=array.array('i', [18*i for i in ep_table])
+    
     index1=edge_solved_set[2]
     index2=corner_solved_set[2]
-    prune_table1=create_table.create_prune_table(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
+    prune_table1=create_table.create_prune_table2(index1, index2, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[2])
         
     index3=edge_solved_set[1]
     index4=corner_solved_set[1]
-    prune_table2=create_table.create_prune_table(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
+    prune_table2=create_table.create_prune_table2(index3, index4, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[1])
         
     index5=edge_solved_set[3]
     index6=corner_solved_set[3]
-    prune_table3=create_table.create_prune_table(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
+    prune_table3=create_table.create_prune_table2(index5, index6, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[3])
         
     index7=edge_solved_set[0]
     index8=corner_solved_set[0]
-    prune_table4=create_table.create_prune_table(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
-    
+    prune_table4=create_table.create_prune_table2(index7, index8, 24*22*20*18*16, 24, 12, table1, corner_move_table, prune_path_set[0])
+    table1=array.array('i', [24*i for i in table1])
+    index1*=24
+    index3*=24
+    index5*=24
+    index7*=24
     index_cp=0
     index_co=0
-    index_ep=5860
+    index_ep=5860*18
     index_eo=0
     for move in alg:
-        index1=table1[index1*18+move]
+        index1=table1[index1+move]
         index2=corner_move_table[index2*18+move]
-        index3=table1[index3*18+move]
+        index3=table1[index3+move]
         index4=corner_move_table[index4*18+move]
-        index5=table1[index5*18+move]
+        index5=table1[index5+move]
         index6=corner_move_table[index6*18+move]
-        index7=table1[index7*18+move]
+        index7=table1[index7+move]
         index8=corner_move_table[index8*18+move]
-        index_cp=cp_table[index_cp*18+move]
-        index_co=co_table[index_co*18+move]
-        index_ep=ep_table[index_ep*18+move]
-        index_eo=eo_table[index_eo*18+move]
+        index_cp=cp_table[index_cp+move]
+        index_co=co_table[index_co+move]
+        index_ep=ep_table[index_ep+move]
+        index_eo=eo_table[index_eo+move]
         
     move_restrict=array.array('i',[mv.move_names.index(i) for i in move_restrict])
     ma=create_table.create_ma_table()
