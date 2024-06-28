@@ -529,7 +529,7 @@ class LL_search:
             self.index_eo_tmp=self.eo_table[index_eo+i]
             self.sol.append(i)
             if depth==1:
-                if self.prune1_tmp==0 and self.prune2_tmp==0 and self.prune3_tmp==0 and self.prune4_tmp==0 and ((self.index_ep_tmp==105480 and self.index_cp_tmp==0) or (self.index_ep_tmp==105948 and self.index_cp_tmp==54) or (self.index_ep_tmp==108090 and self.index_cp_tmp==1170) or (self.index_ep_tmp==105534 and self.index_cp_tmp==54)) and self.index_co_tmp==0 and self.index_eo_tmp==0:
+                if self.prune1_tmp==0 and self.prune2_tmp==0 and self.prune3_tmp==0 and self.prune4_tmp==0 and ((self.index_ep_tmp==105480 and self.index_cp_tmp==0) or (self.index_ep_tmp==105948 and self.index_cp_tmp==324) or (self.index_ep_tmp==108090 and self.index_cp_tmp==1170) or (self.index_ep_tmp==105534 and self.index_cp_tmp==54)) and self.index_co_tmp==0 and self.index_eo_tmp==0:
                     self.count+=1
                     if self.full_search:
                         if self.rotation!="":
