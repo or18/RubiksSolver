@@ -677,7 +677,7 @@ class LL_AUF_search:
         self.prune2_tmp=self.prune_table2[index3*24+index4]
         self.prune3_tmp=self.prune_table3[index5*24+index6]
         self.prune4_tmp=self.prune_table4[index7*24+index8]
-        if self.prune1_tmp==0 and self.prune2_tmp==0 and self.prune3_tmp==0 and self.prune4_tmp==0 and ((index_ep==5860 and index_cp==0) or (index_ep==5886 and index_cp==18) or (index_ep==6005 and index_cp==65) or (index_ep==5863 and index_cp==3)) and index_co==0 and index_eo==0:
+        if self.prune1_tmp==0 and self.prune2_tmp==0 and self.prune3_tmp==0 and self.prune4_tmp==0 and index_ep==5860 and index_cp==0 and index_co==0 and index_eo==0:
             if self.full_search:
                 print("already solved")
                 return 0
