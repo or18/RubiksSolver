@@ -72,7 +72,7 @@ scramble="F2 U L2 F2 D2 U' B2 D2 F2 U' B2 D R F2 D U' B' R' D2 U"
 scramble=sv.solve_F2L(scramble, "", False, False, False, False, 8, False, 1, "cross", mv.move_UDLRFB)
 scramble=sv.solve_F2L(scramble, "", True, False, False, False, 7, True, 1, "F2L#1 (BL)", mv.move_UDLRFB)
 ```
-- move_restrict option: move restriction option. Use pre-defined ones `move_UDLRFB`, `move_URF`, `move_UDRF`, `move_UDR`, `move_URFB`, or use original one like `move_ULF=['U', 'U2', "U'", 'L', 'L2', "L'", 'F', 'F2', "F'"]`.
+- move_restrict option: move restriction option. Use pre-defined ones `move_UDLRFB`, `move_URF`, `move_UDRF`, `move_UDR`, `move_URFB`, `move_UR`, or use original one like `move_ULF=['U', 'U2', "U'", 'L', 'L2', "L'", 'F', 'F2', "F'"]`.
 ### Examples
 ```python
 import RubiksSolver.solver as sv
