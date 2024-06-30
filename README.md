@@ -4,7 +4,7 @@ Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Last layer(
 
 # Notes
 - PyPy3 is recommended.
-- Recommended to run on Google Colaboratory.
+- Recommended to run on Google Colaboratory, using GPU or TPU.
 - For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. 
 - Memory required <= 1.64 GB 
 - For the usage, please check the examples or Detail
