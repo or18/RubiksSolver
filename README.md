@@ -3,7 +3,7 @@
 Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available. Web app version is also available.
 
 # Notes
-- Web app is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb) or [Demo app](https://ce1d7de3853e8ef223.gradio.live/). Demo app may be unavailable due to runtime disconnection.
+- Web app is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb) or [Demo app](https://b47440a81454d9799c.gradio.live/). Demo app may be unavailable due to runtime disconnection.
 - PyPy3 is recommended.
 - Recommended to run on Google Colaboratory, using GPU or TPU.
 - For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. 
