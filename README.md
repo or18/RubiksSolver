@@ -1,9 +1,9 @@
 [![HitCount](https://hits.dwyl.com/or18/RubiksSolver.svg?style=flat-square)](http://hits.dwyl.com/or18/RubiksSolver)
 # RubiksSolver
-Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available. Web app version is also available.
+Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available. GUI version is also available.
 
 # Notes
-- Web app is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb)
+- GUI version is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb)
 - Recommended to run on Google Colaboratory, using GPU or TPU.
 - For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. 
 - Memory required <= 1.64 GB 
