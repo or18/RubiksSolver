@@ -3,7 +3,7 @@
 Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available. GUI version is also available.
 
 # Notes
-- GUI version is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb)<br>See the demo video.
+- GUI version is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb)<br>See the demo video (Click the image).
 
 [![Demo video](https://github.com/user-attachments/assets/f9abe48c-ce4b-4fab-8288-56c2912b0fab)](https://github.com/user-attachments/assets/de2aed71-78bc-4a7b-a822-77c1d1f63285)
 
