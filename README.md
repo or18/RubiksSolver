@@ -3,8 +3,10 @@
 Rubik's cube cross, xcross, xxcross, xxxcross, and xxxxcross solver. Last layer(LL) substep solver, LL solver, and LL+AUF solver based on xxxxcross solver are also available. GUI version is also available.
 
 # Notes
-- GUI version is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb)
-<video src="https://github.com/user-attachments/assets/81ca63aa-755a-43da-b5db-d956ed8eabb6"></video>
+- GUI version is now available. Check [Google colab notebook](https://colab.research.google.com/github/or18/RubiksSolver/blob/main/RubiksSolverApp.ipynb)<br>See the demo video.
+
+[![Demo video](https://github.com/user-attachments/assets/f9abe48c-ce4b-4fab-8288-56c2912b0fab)](https://github.com/user-attachments/assets/de2aed71-78bc-4a7b-a822-77c1d1f63285)
+
 - Recommended to run on Google Colaboratory, using GPU or TPU.
 - For the first search, some tables need to be created. These tables take up approximately 1.3 GB of disk space. 
 - Memory required <= 1.64 GB 
